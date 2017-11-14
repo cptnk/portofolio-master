@@ -3,18 +3,20 @@
         <section id="headgl"></section>
 
         <div class="container">
-            <div class="row">
+            <div class="row flex-row flex-row-justify">
                 <div class="col-12 col-lg-8">
-                    <h1>{{ startHeadline }}</h1>
-                    <p>
-                        Hello my name is Stanislaw Gutsch and I write web-applications for a living.<br>
-                        My daily routine usually includes using javascript/php/css and whatever fancy deployment tool we use at the
-                        <a href="kreativrudel.de">company</a> I'am working for.
-                        <br>
-                        <br>
-                        At the moment I enjoy <a href="https://de.wikipedia.org/wiki/OpenGL_Shading_Language">GLSL</a> and <a href="https://threejs.org/">three.js</a> as a hobby on
-                        my time off. An example of that is presented on the top of the web page.
-                    </p>
+                    <section class="about-me-section">
+                        <h1>{{ startHeadline }}</h1>
+                        <p>
+                            Hello my name is Stanislaw Gutsch and I write web-applications for a living.<br>
+                            My daily routine usually includes using javascript/php/css and whatever fancy deployment tool we use at the
+                            <a href="kreativrudel.de">company</a> I'am working for.
+                            <br>
+                            <br>
+                            At the moment I enjoy <a href="https://de.wikipedia.org/wiki/OpenGL_Shading_Language">GLSL</a> and <a href="https://threejs.org/">three.js</a> as a hobby on
+                            my time off. An example of that is presented on the top of the web page.
+                        </p>
+                    </section>
                 </div>
                 <div class="col-12 col-lg-4">
                     <aside class="social-box">
@@ -31,7 +33,7 @@
                 </div>
             </div>
         </div>
-
+        <technologies></technologies>
         <script id="vertex-shader" type="x-shader/x-fragment">
        varying vec2 vUv;
 			void main()	{
@@ -106,6 +108,7 @@
 
 <script>
   import * as THREE from 'three';
+  import Technologies from './Technologies.vue';
 
   export default {
     name: 'HelloWorld',
@@ -114,6 +117,9 @@
         startHeadline: 'Cptnks life as a developer;',
         title: 'Home of Stanislaw Gutsch'
       }
+    },
+    components: {
+      Technologies
     },
     head: {
       title: function () {
@@ -164,11 +170,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    h1:first-letter {
-        background-color: #2c3e50;
-        color: #fff;
-        font-size: 3.5rem;
-    }
     .social-box {
         border: 1px solid #2c3e50;
     }

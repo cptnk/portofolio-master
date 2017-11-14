@@ -10,7 +10,7 @@
                         <p>
                             Hello my name is Stanislaw Gutsch and I write web-applications for a living.<br>
                             My daily routine usually includes using javascript/php/css and whatever fancy deployment tool we use at the
-                            <a href="kreativrudel.de">company</a> I'am working for.
+                            <a href="kreativrudel.de">company</a> I work for.
                             <br>
                             <br>
                             At the moment I enjoy <a href="https://de.wikipedia.org/wiki/OpenGL_Shading_Language">GLSL</a> and <a href="https://threejs.org/">three.js</a> as a hobby on
@@ -34,6 +34,7 @@
             </div>
         </div>
         <technologies></technologies>
+        <cv></cv>
         <script id="vertex-shader" type="x-shader/x-fragment">
        varying vec2 vUv;
 			void main()	{
@@ -109,6 +110,7 @@
 <script>
   import * as THREE from 'three';
   import Technologies from './Technologies.vue';
+  import Cv from './Cv.vue';
 
   export default {
     name: 'HelloWorld',
@@ -119,7 +121,7 @@
       }
     },
     components: {
-      Technologies
+      Technologies, Cv
     },
     head: {
       title: function () {

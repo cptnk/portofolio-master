@@ -100,3 +100,7 @@ a:hover {
 .about-me-section, .technologies-section, .cv-section {
     padding: 1.5rem;
 }
+
+body {
+    overflow-x: hidden;
+}

@@ -6,7 +6,7 @@
                     <h2>Curriculum Vitae;</h2>
                     <ul class="cv-list">
                         <li v-for="(item, index) in lifeMilestones" v-bind:class="{ even: even(index) }">
-                            <h3>{{ item.title }}</h3>
+                            <h3 v-html="item.title"></h3>
                             <div class="cv-list-item-inner">
                                 <p>{{ item.link }}</p>
                                 <p>{{ item.desc }}</p>
@@ -48,7 +48,7 @@
             desc: 'Switched major to Medizininformatik B.Sc'
           },
           {
-            title: 'Medizininformatik  B.Sc.',
+            title: 'Medizinin&shy;formatik  B.Sc.',
             link: 'www.hochschule-trier.de',
             desc: 'Canceled due to low credits in Medical related classes',
             date: '2011 - 2013'
@@ -115,7 +115,7 @@
     }
 
     .cv-list li:nth-child(even) {
-        margin-top: 50%;
+        margin-top: 20vh;
     }
 
     .cv-list li:after {
@@ -137,6 +137,7 @@
         background-color: #2c3e50;
         color: #fff;
         margin-bottom: 0;
+        padding: 1rem;
     }
 
     .cv-list li .cv-list-item-inner {

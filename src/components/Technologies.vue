@@ -28,7 +28,7 @@
                         <div class="flex-container">
                             <div class="two-x-tow-item">
                                 <h5 class="odd">php</h5>
-                                <ul class="odd">
+                                <ul class="odd tech-stack-list">
                                     <li>{{ (new Date()).getFullYear() - 2013 }} years of professional experience</li>
                                     <li>Interested in oop practice and modern programming paradigms</li>
                                     <li>Professional knowledge in Zendframework, Laravel, Typo3 and Wordpress</li>
@@ -36,7 +36,7 @@
                             </div>
                             <div class="two-x-tow-item">
                                 <h5>python</h5>
-                                <ul>
+                                <ul class="tech-stack-list">
                                     <li>1 year of professional experience</li>
                                     <li>By now the skills are dated a little</li>
                                     <li>Professional knowledge in django</li>
@@ -49,7 +49,7 @@
                         <div class="flex-container">
                             <div class="two-x-tow-item">
                                 <h5 class="odd">Javascript</h5>
-                                <ul class="odd">
+                                <ul class="odd tech-stack-list">
                                     <li>{{ (new Date()).getFullYear() - 2015 }} years of professional experience </li>
                                     <li>Interested in es6 and browser support for various features</li>
                                     <li>Professional knowledge in Vue.js, jQuery, Angular and Three.js</li>
@@ -57,7 +57,7 @@
                             </div>
                             <div class="two-x-tow-item">
                                 <h5>CSS</h5>
-                                <ul>
+                                <ul class="tech-stack-list">
                                     <li>{{ (new Date()).getFullYear() - 2013 }} years of professional experience</li>
                                     <li>Interested in Pre-Processors, SVG Animation, Grid Layout and Flex</li>
                                     <li>Uses SCSS used LESS in the past</li>
@@ -70,7 +70,7 @@
                         <div class="flex-container">
                             <div class="two-x-tow-item">
                                 <h5 class="odd">Deployment and VCS</h5>
-                                <ul class="odd">
+                                <ul class="odd tech-stack-list">
                                     <li>Uses Git used SVN</li>
                                     <li>Interested in Jenkins Used fabric and dploy in the past</li>
                                     <li>Automated Testing done with codeception and selenium</li>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="two-x-tow-item">
                                 <h5>Design</h5>
-                                <ul>
+                                <ul class="tech-stack-list">
                                     <li>Knows how to use Adobe (Illustrator, Photoshop)</li>
                                     <li>Knows how to use (Windows, Linux, MacOS)</li>
                                     <li>Knows how to setup computer hardware</li>
@@ -211,11 +211,15 @@
     }
 
     .general-tech {
-        background-color: #ff00ff;
+        background-color: #2c3e50;
     }
 
     .general-tech .odd {
-        border-right: .5rem solid #ff00ff;
+        border-right: .5rem solid #2c3e50;
+    }
+
+    .general-tech h4 {
+        color: #ff00ff;
     }
 
     .general-tech h5 {
@@ -224,23 +228,32 @@
     }
 
     .Frontend-tech {
-        background-color: #00ffff;
+        background-color: #2c3e50;
     }
 
     .Frontend-tech .odd {
-        border-right: .5rem solid #00ffff;
+        border-right: .5rem solid #2c3e50;
     }
+
+    .Frontend-tech h4 {
+        color: #00ffff;
+    }
+
     .Frontend-tech h5 {
         text-decoration: underline;
         text-decoration-color: #00ffff;
     }
 
     .backend-tech {
-        background-color: #ffff00;
+        background-color: #2c3e50;
+    }
+
+    .backend-tech h4 {
+        color: #ffff00;
     }
 
     .backend-tech .odd {
-        border-right: .5rem solid #ffff00;
+        border-right: .5rem solid #2c3e50;
     }
 
     .backend-tech h5 {
@@ -250,7 +263,6 @@
 
     .tech-item {
         padding: .5rem;
-        padding-bottom: 1rem;
     }
 
     .tech-item .flex-container {
@@ -263,8 +275,13 @@
 
     .tech-item h4 {
         margin-bottom: 0;
-        color: #2c3e50;
-        padding: 1rem;
+        padding: 0 1rem 1rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .tech-item:nth-of-type(1) h4 {
+        padding-top: .5rem;
     }
 
     .tech-item h5 {
@@ -276,6 +293,38 @@
     .tech-item .two-x-tow-item ul  {
         margin-bottom: 0;
         padding-bottom: 1rem;
+    }
+
+    .tech-stack-list {
+        list-style-type: none;
+    }
+
+    .tech-stack-list li {
+        position: relative;
+    }
+
+    .tech-stack-list li:before {
+        content: '';
+        position: absolute;
+        left: -1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fff;
+        height: 5px;
+        border: 1px solid #2c3e50;
+        width: 10px;
+    }
+
+    .general-tech .tech-stack-list li:before {
+        background-color: #ff00ff;
+    }
+
+    .backend-tech .tech-stack-list li:before {
+        background-color: #ffff00;
+    }
+
+    .Frontend-tech .tech-stack-list li:before {
+        background-color: #00ffff;
     }
 
     @media (max-width: 992px) {

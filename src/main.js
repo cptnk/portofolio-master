@@ -7,9 +7,7 @@ import VueHead from 'vue-head'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../src/assets/styles/global.css'
 import '../src/assets/styles/fontello.css'
-import 'firebase/app'
-import 'firebase/auth'
-import 'firebase/database'
+import 'object-fit-images'
 // import * as THREE from 'three'
 
 Vue.config.productionTip = false

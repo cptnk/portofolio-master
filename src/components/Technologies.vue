@@ -174,16 +174,19 @@
         flex-flow: column;
         z-index: 2;
         position: relative;
+        padding-left: 0;
     }
 
     .stack-list .stack-item {
-        padding: 2rem;
-        width: 100px;
-        height: 75px;
+        width: calc(100px - 2rem);
+        height: calc(75px - 2rem);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
     .stack-list .stack-item img {
         object-fit: contain;
+        font-family: 'object-fit: contain;';
         width: calc(100px - 2rem);
         height: calc(75px - 2rem);
     }

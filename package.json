@@ -17,6 +17,7 @@
     "bootstrap": "^4.0.0-beta.2",
     "firebase": "^4.6.2",
     "jquery": "^3.2.1",
+    "object-fit-images": "^3.2.3",
     "popper.js": "^1.12.7",
     "three": "^0.88.0",
     "vue": "^2.5.2",

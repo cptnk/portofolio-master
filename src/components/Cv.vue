@@ -10,6 +10,7 @@
                             <div class="cv-list-item-inner">
                                 <p>{{ item.link }}</p>
                                 <p>{{ item.desc }}</p>
+                                <p>{{ item.date }}</p>
                             </div>
                         </li>
                     </ul>
@@ -25,33 +26,36 @@
       return {
         lifeMilestones: [
           {
-            title: 'Born n stuff',
+            title: 'Birth',
             desc: 'Issyk Alma-Ata',
             date: '18.12.1987'
           },
           {
-            title: 'Community College',
-            desc: 'Issyk Alma-Ata',
-            link: 'http://www.august-horch-schule.de/',
-            date: 'idk-2004 - idk-2006'
+            title: 'Community College August Horch BBS Andernach',
+            desc: 'Assistant of software development and business degree',
+            link: 'www.august-horch-schule.de/',
+            date: '2006 - 2008'
           },
           {
-            title: 'Training',
-            desc: 'noitulos',
-            date: '2006 - 2007'
+            title: 'Training software development',
+            desc: 'noitulos Gmbh',
+            date: '2008 - 2009'
           },
           {
             title: 'Informatik B.Sc.',
-            link: 'https://www.th-bingen.de/home/',
-            date: '2008 - 2011'
+            link: 'www.th-bingen.de/home/',
+            date: '2009 - 2011',
+            desc: 'Switched major to Medizininformatik B.Sc'
           },
           {
             title: 'Medizininformatik  B.Sc.',
-            link: 'https://www.hochschule-trier.de/index.php?id=1246&no_cache=1',
+            link: 'www.hochschule-trier.de',
+            desc: 'Canceled due to low credits in Medical related classes',
             date: '2011 - 2013'
           },
           {
             title: 'Open New Media GmbH',
+            desc: 'IHK Internship',
             link: 'https://www.onm.de/',
             date: '2013 - 2014'
           },
@@ -61,7 +65,8 @@
           },
           {
             title: 'kreativrudel GmbH & Co. KG',
-            link: 'https://www.kreativrudel.de',
+            link: 'www.kreativrudel.de',
+            desc: 'Currently working as a full stack web developer',
             date: '2016 - today'
           }
         ]
@@ -136,5 +141,34 @@
 
     .cv-list li .cv-list-item-inner {
         padding: .5rem;
+    }
+
+    @media (max-width: 992px) {
+        .cv-list {
+            flex-flow: column;
+        }
+
+        .cv-list li {
+            width: 100%;
+        }
+
+        .cv-list li:after {
+            height: 0;
+            width: 0;
+            background-color: transparent;
+        }
+
+        .cv-list::after {
+            height: 0;
+            width: 0;
+            background-color: transparent;
+        }
+        .cv-list li:nth-child(2n) {
+            margin-top: 0;
+        }
+
+        .cv-list li h3 {
+            padding: .5rem;
+        }
     }
 </style>

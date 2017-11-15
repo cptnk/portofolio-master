@@ -27,8 +27,8 @@
                         <h4>Backend</h4>
                         <div class="flex-container">
                             <div class="two-x-tow-item">
-                                <h5>php</h5>
-                                <ul>
+                                <h5 class="odd">php</h5>
+                                <ul class="odd">
                                     <li>{{ (new Date()).getFullYear() - 2013 }} years of professional experience</li>
                                     <li>Interested in oop practice and modern programming paradigms</li>
                                     <li>Professional knowledge in Zendframework, Laravel, Typo3 and Wordpress</li>
@@ -48,8 +48,8 @@
                         <h4>Frontend</h4>
                         <div class="flex-container">
                             <div class="two-x-tow-item">
-                                <h5>Javascript</h5>
-                                <ul>
+                                <h5 class="odd">Javascript</h5>
+                                <ul class="odd">
                                     <li>{{ (new Date()).getFullYear() - 2015 }} years of professional experience </li>
                                     <li>Interested in es6 and browser support for various features</li>
                                     <li>Professional knowledge in Vue.js, jQuery, Angular and Three.js</li>
@@ -69,8 +69,8 @@
                         <h4>General</h4>
                         <div class="flex-container">
                             <div class="two-x-tow-item">
-                                <h5>Deployment and VCS</h5>
-                                <ul>
+                                <h5 class="odd">Deployment and VCS</h5>
+                                <ul class="odd">
                                     <li>Uses Git used SVN</li>
                                     <li>Interested in Jenkins Used fabric and dploy in the past</li>
                                     <li>Automated Testing done with codeception and selenium</li>
@@ -214,24 +214,89 @@
         background-color: #ff00ff;
     }
 
+    .general-tech .odd {
+        border-right: .5rem solid #ff00ff;
+    }
+
+    .general-tech h5 {
+        text-decoration: underline;
+        text-decoration-color: #ff00ff;
+    }
+
     .Frontend-tech {
         background-color: #00ffff;
+    }
+
+    .Frontend-tech .odd {
+        border-right: .5rem solid #00ffff;
+    }
+    .Frontend-tech h5 {
+        text-decoration: underline;
+        text-decoration-color: #00ffff;
     }
 
     .backend-tech {
         background-color: #ffff00;
     }
 
+    .backend-tech .odd {
+        border-right: .5rem solid #ffff00;
+    }
+
+    .backend-tech h5 {
+        text-decoration: underline;
+        text-decoration-color: #ffff00;
+    }
+
     .tech-item {
         padding: .5rem;
+        padding-bottom: 1rem;
     }
 
     .tech-item .flex-container {
         background-color: #fff;
     }
 
+    .tech-item li {
+        padding: .75rem .75rem;
+    }
+
     .tech-item h4 {
         margin-bottom: 0;
         color: #2c3e50;
+        padding: 1rem;
+    }
+
+    .tech-item h5 {
+        padding: 1rem;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .tech-item .two-x-tow-item ul  {
+        margin-bottom: 0;
+        padding-bottom: 1rem;
+    }
+
+    @media (max-width: 992px) {
+        .tech-item .flex-container {
+            flex-flow: column;
+        }
+
+        .tech-item .two-x-tow-item {
+            width: 100%;
+        }
+
+        .general-tech .odd {
+            border-right: none;
+        }
+
+        .Frontend-tech .odd {
+            border-right: none;
+        }
+
+        .backend-tech .odd {
+            border-right: none;
+        }
     }
 </style>

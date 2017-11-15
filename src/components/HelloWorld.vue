@@ -1,7 +1,15 @@
 <template>
     <div class="hello">
         <section id="headgl"></section>
-
+        <figure id="logo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="../assets/static/logo.png" alt="cptnk-logo" height="110" width="160"/>
+                    </div>
+                </div>
+            </div>
+        </figure>
         <div class="container">
             <div class="row flex-row flex-row-justify">
                 <div class="col-12 col-lg-8">
@@ -205,5 +213,16 @@
 
     .social-links i {
         font-size: 1.75rem;
+    }
+
+    #logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    #logo img {
+        padding-left: 1.5rem;
     }
 </style>

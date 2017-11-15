@@ -24,7 +24,7 @@
                 <section class="technologies-section">
                     <h2>Knowledge and Interests;</h2>
                     <div class="tech-item backend-tech">
-                        <h4>Back us endus</h4>
+                        <h4>Backend</h4>
                         <div class="flex-container">
                             <div class="two-x-tow-item">
                                 <h5>php</h5>
@@ -45,18 +45,20 @@
                         </div>
                     </div>
                     <div class="tech-item Frontend-tech">
-                        <h4>front us endus</h4>
+                        <h4>Frontend</h4>
                         <div class="flex-container">
                             <div class="two-x-tow-item">
                                 <h5>Javascript</h5>
                                 <ul>
-
+                                    <li>{{ (new Date()).getFullYear() - 2015 }} years of professional experience </li>
+                                    <li>Interested in es6 and browser support for various features</li>
+                                    <li>Professional knowledge in Vue.js, jQuery, Angular and Three.js</li>
                                 </ul>
                             </div>
                             <div class="two-x-tow-item">
                                 <h5>CSS</h5>
                                 <ul>
-                                    <li>{{ (new Date()).getFullYear() - 2013 }} of professional experience</li>
+                                    <li>{{ (new Date()).getFullYear() - 2013 }} years of professional experience</li>
                                     <li>Interested in Pre-Processors, SVG Animation, Grid Layout and Flex</li>
                                     <li>Uses SCSS used LESS in the past</li>
                                 </ul>
@@ -64,11 +66,28 @@
                         </div>
                     </div>
                     <div class="tech-item general-tech">
-                        <h4>the rope aka general interests</h4>
-                    </div>
-                    <p>
+                        <h4>General</h4>
+                        <div class="flex-container">
+                            <div class="two-x-tow-item">
+                                <h5>Deployment and VCS</h5>
+                                <ul>
+                                    <li>Uses Git used SVN</li>
+                                    <li>Interested in Jenkins Used fabric and dploy in the past</li>
+                                    <li>Automated Testing done with codeception and selenium</li>
+                                    <li>Interested in Javascript based testing frameworks like karma</li>
+                                </ul>
+                            </div>
+                            <div class="two-x-tow-item">
+                                <h5>Design</h5>
+                                <ul>
+                                    <li>Knows how to use Adobe (Illustrator, Photoshop)</li>
+                                    <li>Knows how to use (Windows, Linux, MacOS)</li>
+                                    <li>Knows how to setup computer hardware</li>
+                                </ul>
+                            </div>
+                        </div>
 
-                    </p>
+                    </div>
                 </section>
             </div>
         </div>

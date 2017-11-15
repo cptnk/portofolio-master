@@ -5,7 +5,7 @@
                 <section class="cv-section">
                     <h2>Curriculum Vitae;</h2>
                     <ul class="cv-list">
-                        <li v-for="(item, index) in lifeMilestones">
+                        <li v-for="(item, index) in lifeMilestones" v-bind:class="{ even: even(index) }">
                             <h3>{{ item.title }}</h3>
                             <div class="cv-list-item-inner">
                                 <p>{{ item.link }}</p>
@@ -66,6 +66,11 @@
           }
         ]
       }
+    },
+    methods: {
+      even: function (n) {
+        return n % 2 !== 0;
+      }
     }
   }
 </script>
@@ -116,6 +121,11 @@
         height: 2px;
         width: 26px;
         background-color: #2c3e50;
+    }
+
+    .cv-list li.even:after {
+        right: auto;
+        left: -26px;
     }
 
     .cv-list li h3 {

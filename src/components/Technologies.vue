@@ -23,25 +23,51 @@
             <div class="col-12 col-lg-7">
                 <section class="technologies-section">
                     <h2>Knowledge and Interests;</h2>
+                    <div class="tech-item backend-tech">
+                        <h4>Back us endus</h4>
+                        <div class="flex-container">
+                            <div class="two-x-tow-item">
+                                <h5>php</h5>
+                                <ul>
+                                    <li>{{ (new Date()).getFullYear() - 2013 }} years of professional experience</li>
+                                    <li>Interested in oop practice and modern programming paradigms</li>
+                                    <li>Professional knowledge in Zendframework, Laravel, Typo3 and Wordpress</li>
+                                </ul>
+                            </div>
+                            <div class="two-x-tow-item">
+                                <h5>python</h5>
+                                <ul>
+                                    <li>1 year of professional experience</li>
+                                    <li>By now the skills are dated a little</li>
+                                    <li>Professional knowledge in django</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-item Frontend-tech">
+                        <h4>front us endus</h4>
+                        <div class="flex-container">
+                            <div class="two-x-tow-item">
+                                <h5>Javascript</h5>
+                                <ul>
+
+                                </ul>
+                            </div>
+                            <div class="two-x-tow-item">
+                                <h5>CSS</h5>
+                                <ul>
+                                    <li>{{ (new Date()).getFullYear() - 2013 }} of professional experience</li>
+                                    <li>Interested in Pre-Processors, SVG Animation, Grid Layout and Flex</li>
+                                    <li>Uses SCSS used LESS in the past</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-item general-tech">
+                        <h4>the rope aka general interests</h4>
+                    </div>
                     <p>
-                        Originally I started learning C++ during my teens in an community college near Koblenz in the wonderful
-                        state of Rhineland Palatinate.
-                        <br><br>After getting a degree in informatics and business I completed an 1 year lasting training which involved web-development
-                        in the <a href="https://www.python.org/">Python</a> programming language and a framework called <a href="https://www.djangoproject.com/">Django</a><br><br>
 
-                        I eventually tried majoring in a theoretical software development degree which I changed to a medical informatics degree. In the end I chose not to graduate<br>
-                        and continue in the web-development field.
-                        <br><br>
-
-                        As of today I worked for 2 companies and freelanced for a year. Currently I mostly work with Javascript/PHP in combination of various Frameworks, Build-tools and <br>
-                        Preprocessors.
-
-                        Ironically I have the most experience in the Framework I like the least (just like any other developer) which is Typo3 which at this point probably amounts to 4 years<br>
-                        (on and off).<br><br>
-
-                        Sadly my current company does not give me the chance to work in my favorite framework namely Zendframework in which I was a active part of the community.<br><br>
-
-                        At the end of the day it doesn't really matter in my humble opinion as long as it get's the job done.
                     </p>
                 </section>
             </div>
@@ -160,5 +186,30 @@
         object-fit: contain;
         width: calc(100px - 2rem);
         height: calc(75px - 2rem);
+    }
+
+    .general-tech {
+        background-color: #ff00ff;
+    }
+
+    .Frontend-tech {
+        background-color: #00ffff;
+    }
+
+    .backend-tech {
+        background-color: #ffff00;
+    }
+
+    .tech-item {
+        padding: .5rem;
+    }
+
+    .tech-item .flex-container {
+        background-color: #fff;
+    }
+
+    .tech-item h4 {
+        margin-bottom: 0;
+        color: #2c3e50;
     }
 </style>

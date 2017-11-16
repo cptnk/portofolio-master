@@ -38,19 +38,19 @@
           },
           {
             title: 'Training software development',
-            desc: 'noitulos Gmbh',
+            desc: 'Noitulos GmbH',
             date: '2008 - 2009'
           },
           {
             title: 'Informatik B.Sc.',
             link: 'www.th-bingen.de/home/',
             date: '2009 - 2011',
-            desc: 'Switched major to Medizininformatik B.Sc'
+            desc: 'Switched major to Medizin Informatik B.Sc'
           },
           {
             title: 'Medizinin&shy;formatik  B.Sc.',
             link: 'www.hochschule-trier.de',
-            desc: 'Canceled due to low credits in Medical related classes',
+            desc: 'Cancelled due to low credits in Medical related classes',
             date: '2011 - 2013'
           },
           {

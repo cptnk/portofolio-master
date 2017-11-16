@@ -27,19 +27,19 @@
                         <h4>Backend</h4>
                         <div class="flex-container">
                             <div class="two-x-tow-item">
-                                <h5 class="odd">php</h5>
+                                <h5 class="odd">PHP</h5>
                                 <ul class="odd tech-stack-list">
                                     <li>{{ (new Date()).getFullYear() - 2013 }} years of professional experience</li>
-                                    <li>Interested in oop practice and modern programming paradigms</li>
-                                    <li>Professional knowledge in Zendframework, Laravel, Typo3 and Wordpress</li>
+                                    <li>Interested in OOP practice and modern programming paradigms</li>
+                                    <li>Professional knowledge in Zend Framework, Laravel, TYPO3 and WordPress</li>
                                 </ul>
                             </div>
                             <div class="two-x-tow-item">
-                                <h5>python</h5>
+                                <h5>Python</h5>
                                 <ul class="tech-stack-list">
                                     <li>1 year of professional experience</li>
-                                    <li>By now the skills are dated a little</li>
-                                    <li>Professional knowledge in django</li>
+                                    <li>Not my favourite language and it has been some time since I last extensively worked with it</li>
+                                    <li>Professional knowledge in Django</li>
                                 </ul>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                         <h4>Frontend</h4>
                         <div class="flex-container">
                             <div class="two-x-tow-item">
-                                <h5 class="odd">Javascript</h5>
+                                <h5 class="odd">JavaScript</h5>
                                 <ul class="odd tech-stack-list">
                                     <li>{{ (new Date()).getFullYear() - 2015 }} years of professional experience </li>
                                     <li>Interested in es6 and browser support for various features</li>
@@ -71,18 +71,19 @@
                             <div class="two-x-tow-item">
                                 <h5 class="odd">Deployment and VCS</h5>
                                 <ul class="odd tech-stack-list">
-                                    <li>Uses Git used SVN</li>
-                                    <li>Interested in Jenkins Used fabric and dploy in the past</li>
-                                    <li>Automated Testing done with codeception and selenium</li>
-                                    <li>Interested in Javascript based testing frameworks like karma</li>
+                                    <li>Currently uses Git but used SVN previously</li>
+                                    <li>Interested in Jenkins</li>
+                                    <li>Used Fabric and DPLOY in the past</li>
+                                    <li>Automated testing done with Codeception and Selenium</li>
+                                    <li>Interested in JavaScript based testing frameworks like Karma</li>
                                 </ul>
                             </div>
                             <div class="two-x-tow-item">
                                 <h5>Design</h5>
                                 <ul class="tech-stack-list">
-                                    <li>Knows how to use Adobe (Illustrator, Photoshop)</li>
-                                    <li>Knows how to use (Windows, Linux, MacOS)</li>
-                                    <li>Knows how to setup computer hardware</li>
+                                    <li>Proficient with Adobe (Illustrator, Photoshop)</li>
+                                    <li>Proficient with (Windows, Linux, MacOS)</li>
+                                    <li>Proficient with the setup of computer hardware</li>
                                 </ul>
                             </div>
                         </div>

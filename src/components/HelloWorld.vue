@@ -41,8 +41,6 @@
                 </div>
             </div>
         </div>
-        <technologies></technologies>
-        <cv></cv>
         <script id="vertex-shader" type="x-shader/x-fragment">
        varying vec2 vUv;
 			void main()	{
@@ -79,46 +77,46 @@
             }
 
             void main( void ) {
-                vec2 offset = vec2(time * 8.25,0);
+            vec2 offset = vec2(time * 8.25,0);
 
-                vec2 star = 1.0 * (gl_FragCoord.xy / resolution) - 1.0;
-                star.x *= resolution.x / resolution.y;
+            vec2 star = 1.0 * (gl_FragCoord.xy / resolution) - 1.0;
+            star.y *= resolution.y / resolution.x;
+            star.y += time * speed;
 
-                star *= 350.0;
+            star *= 150.0;
 
-                float intensity = genstars(0.85, 50., 2.5, star + offset * 2.5);
+            float intensity = genstars(10., 35., 2.5, star + offset);
+            intensity += genstars(5., 50., 12.5, star + offset );
 
-                vec2 position = (gl_FragCoord.xy - resolution / 3.) / resolution.x;
-                position.x += time * speed;
+            vec2 position = (gl_FragCoord.xy - resolution / 3.) / resolution.x;
+            position.x += time * speed;
 
-                float c = 1.2;
-                float k = 1.3;
+            float c = 1.2;
+            float k = 1.3;
 
-                for (int j = 0; j < layers; j++)
+            for (int j = 0; j < layers; j++)
+            {
+                float h = 0.;
+                float p = 1.5;
+                for (int i = 0; i < 20; i++)
                 {
-                    float h = 0.;
-                    float p = 1.5;
-                    for (int i = 0; i < 20; i++)
-                    {
-                        p *= sin(position.x * 0.1) * 0.2 + 1.2;
-                        h += abs(sin(p * 100.)) * (0.5*forest(position.x*p) - 0.25 - position.y / sqrt(k)) / p;
-                    }
-                    c = ceil(sign(h) * .5) * k;
-                    if (c > 0.) break;
-                    k -= 1.4 / float(layers);
-                    position.x -= 10. + time * speed / float(layers);
-                    position.y -= 0.1 / float(layers);
+                p *= sin(position.x * 0.1) * 0.2 + 1.2;
+                h += abs(sin(p * 100.)) * (0.5*forest(position.x*p) - 0.25 - position.y / sqrt(k)) / p;
                 }
-                gl_FragColor = vec2(intensity + c, 21).xxxy;
+                c = ceil(sign(h) * .5) * k;
+                if (c > 0.) break;
+                k -= 1.4 / float(layers);
+                position.x -= 10. + time * speed / float(layers);
+                position.y -= 0.1 / float(layers);
             }
+            gl_FragColor = vec2(intensity + c, 21).xxxy;
+        }
         </script>
     </div>
 </template>
 
 <script>
   import * as THREE from 'three';
-  import Technologies from './Technologies.vue';
-  import Cv from './Cv.vue';
 
   export default {
     name: 'HelloWorld',
@@ -127,9 +125,6 @@
         startHeadline: 'Cptnks life as a developer;',
         title: 'Home of Stanislaw Gutsch'
       }
-    },
-    components: {
-      Technologies, Cv
     },
     head: {
       title: function () {

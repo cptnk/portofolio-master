@@ -75,6 +75,11 @@
     methods: {
       even: function (n) {
         return n % 2 !== 0;
+      },
+      isCvView: function () {
+          let wholeQuery = this.$route.query;
+          console.log(wholeQuery);
+          return false;
       }
     }
   }

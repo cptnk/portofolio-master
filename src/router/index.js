@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Technologies from '@/components/Technologies'
+import Cv from '@/components/Cv'
 Vue.use(Router)
 
 export default new Router({
@@ -12,9 +12,9 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/technologies',
-      name: 'Technologies',
-      component: Technologies
+        path: '/cv',
+        name: 'Cv',
+        component: Cv
     }
   ]
 })

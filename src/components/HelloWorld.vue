@@ -86,7 +86,7 @@
             star *= 150.0;
 
             float intensity = genstars(10., 35., 2.5, star + offset);
-            intensity += genstars(5., 50., 12.5, star + offset );
+            intensity += genstars(5., 50., 12.5, star);
 
             vec2 position = (gl_FragCoord.xy - resolution / 3.) / resolution.x;
             position.x += time * speed;

@@ -24,3 +24,4 @@ Homestead.json
 /.idea/workspace.xml
 /debug.log
 .idea/codeStyles/codeStyleConfig.xml
+/build/.idea

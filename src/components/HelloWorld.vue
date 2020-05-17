@@ -17,8 +17,8 @@
                         <h1>{{ startHeadline }}</h1>
                         <p>
                             Hello my name is Stanislaw Gutsch and I write web-applications for a living.<br>
-                            My daily routine usually includes using JavaScript/PHP/CSS and the sophisticated deployment tool we use at the
-                            <a href="kreativrudel.de">company</a> I work for.
+                            My daily routine usually includes using JavaScript/PHP and the sophisticated deployment tool we use at the
+                            <a href="www.real.de">company</a> I work for.
                             <br>
                             <br>
                             I currently enjoy applying <a href="https://de.wikipedia.org/wiki/OpenGL_Shading_Language">GLSL</a> and <a href="https://threejs.org/">three.js</a> as a hobby

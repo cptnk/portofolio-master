@@ -67,8 +67,14 @@
             title: 'kreativrudel GmbH & Co. KG',
             link: 'www.kreativrudel.de',
             desc: 'Currently working as a full stack web developer',
-            date: '2016 - today'
-          }
+            date: '2016 - 2020'
+          },
+          {
+            title: 'real.digital',
+            link: 'www.real.de',
+            desc: 'Currently working as a Senior Software Engineer',
+            date: '2020 - today'
+            }
         ]
       }
     },

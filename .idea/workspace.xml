@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1eeadb5-a30b-4241-bfcc-6f797f8c262e" name="Changes" comment="rebase">
+    <list default="true" id="c1eeadb5-a30b-4241-bfcc-6f797f8c262e" name="Changes" comment="removed fontello">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styles/fontello.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/fontello.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cv.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cv.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697492259596</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="removed fontello">
+      <option name="closed" value="true" />
+      <created>1697496301126</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697496301126</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +177,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="deploy" />
     <MESSAGE value="rebase" />
-    <option name="LAST_COMMIT_MESSAGE" value="rebase" />
+    <MESSAGE value="removed fontello" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed fontello" />
   </component>
 </project>

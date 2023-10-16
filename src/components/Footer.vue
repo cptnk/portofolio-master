@@ -7,7 +7,7 @@
         </figure>
         <footer class="container" id="cvFooter">
             <div class="row flex-row flex-row-justify footer-links">
-                <a href="/">Home</a> <a href="/#/cv">Curriculum Vitae</a> <a href="/#/imprint">Imprint</a>
+                <a href="/">Home</a> <a href="./#/cv">Curriculum Vitae</a> <a href="./#/imprint">Imprint</a>
             </div>
         </footer>
         <div class="copyright">©{{year}} cptnk</div>

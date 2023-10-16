@@ -111,6 +111,7 @@
         return n % 2 !== 0;
       },
       isCvView: function () {
+          console.log(this.$router)
           return this.$route.fullPath === '/cv';
       }
     },

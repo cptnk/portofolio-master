@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1eeadb5-a30b-4241-bfcc-6f797f8c262e" name="Changes" comment="removed fontello">
+    <list default="true" id="c1eeadb5-a30b-4241-bfcc-6f797f8c262e" name="Changes" comment="removed cnmae">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Cv.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cv.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Imprint.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Imprint.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +179,7 @@
     <MESSAGE value="deploy" />
     <MESSAGE value="rebase" />
     <MESSAGE value="removed fontello" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed fontello" />
+    <MESSAGE value="removed cnmae" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed cnmae" />
   </component>
 </project>

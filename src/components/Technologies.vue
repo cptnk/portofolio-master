@@ -1,13 +1,22 @@
 <template>
     <div class="container" id="technologiesContainer">
+        <div class="col-12">
+            <h2>Technologies</h2>
+        </div>
         <div class="row flex-row flex-row-justify">
             <div class="col-12 col-lg-5" id="tech-gl">
                 <ul class="stack-list">
+                    <li class="stack-item">
+                        <img src="../assets/static/python.png"/>
+                    </li>
                     <li class="stack-item">
                         <img src="../assets/static/php_logo.svg"/>
                     </li>
                     <li class="stack-item">
                         <img src="../assets/static/jabascript.png"/>
+                    </li>
+                    <li class="stack-item">
+                        <img src="../assets/static/django.svg"/>
                     </li>
                     <li class="stack-item">
                         <img src="../assets/static/vuejs_logo.svg"/>
@@ -17,6 +26,21 @@
                     </li>
                     <li class="stack-item">
                         <img src="../assets/static/zf_logo.png"/>
+                    </li>
+                    <li class="stack-item">
+                        <img src="../assets/static/laravel.svg"/>
+                    </li>
+                    <li class="stack-item">
+                        <img src="../assets/static/symfony2.svg"/>
+                    </li>
+                    <li class="stack-item">
+                        <img src="../assets/static/react.svg"/>
+                    </li>
+                    <li class="stack-item">
+                        <img src="../assets/static/aws.svg"/>
+                    </li>
+                    <li class="stack-item">
+                        <img src="../assets/static/gitlab.svg"/>
                     </li>
                 </ul>
             </div>
@@ -30,8 +54,8 @@
                                 <h5 class="odd">PHP</h5>
                                 <ul class="odd tech-stack-list">
                                     <li>{{ (new Date()).getFullYear() - 2013 }} years of professional experience</li>
-                                    <li>Interested in OOP practice and modern programming paradigms</li>
-                                    <li>Professional knowledge in Zend Framework, Laravel, TYPO3 and WordPress</li>
+                                    <li>Interested in OOP practice and modern programming paradigms as well as testing</li>
+                                    <li>Professional knowledge in Zend Framework, Laravel, TYPO3, Laravel, Symfony and WordPress</li>
                                 </ul>
                             </div>
                             <div class="two-x-tow-item">
@@ -52,7 +76,7 @@
                                 <ul class="odd tech-stack-list">
                                     <li>{{ (new Date()).getFullYear() - 2015 }} years of professional experience </li>
                                     <li>Interested in es6 and browser support for various features</li>
-                                    <li>Professional knowledge in Vue.js, jQuery, Angular and Three.js</li>
+                                    <li>Professional knowledge in Vue.js, jQuery, Angular, ReactJs and Three.js</li>
                                 </ul>
                             </div>
                             <div class="two-x-tow-item">
@@ -72,9 +96,10 @@
                                 <h5 class="odd">Deployment and VCS</h5>
                                 <ul class="odd tech-stack-list">
                                     <li>Currently uses Git but used SVN previously</li>
-                                    <li>Interested in Jenkins</li>
-                                    <li>Used Fabric and DPLOY in the past</li>
-                                    <li>Automated testing done with Codeception and Selenium</li>
+                                    <li>Currently uses AWS</li>
+                                    <li>Interested in AWS</li>
+                                    <li>Used Fabric and DPLOY and Jenkins in the past</li>
+                                    <li>Automated testing done with AWS test setup</li>
                                     <li>Interested in JavaScript based testing frameworks like Karma</li>
                                 </ul>
                             </div>
@@ -92,85 +117,15 @@
                 </section>
             </div>
         </div>
-        <script id="vertex-shader-tech" type="x-shader/x-fragment">
-            varying vec2 vUv;
-			void main()	{
-				vUv = uv;
-				gl_Position = vec4( position, 1.0 );
-			}
-        </script>
-        <script type="x-shader/x-fragment" id="fragment-shader-tech">
-        uniform float time;
-        uniform vec2 mouse;
-        uniform vec2 resolution;
-
-        void main()
-        {
-            vec2 r = resolution,
-            o = gl_FragCoord.xy - r/2.;
-            o = vec2(length(o + 2.) / r.y - .4, atan(o.y,o.x));
-            vec4 s = .1*cos(1.618*vec4(0,.1,.2,.3) + time + o.y + sin(o.y) * sin(time)*2.),
-            e = s.yzwx,
-            f = min(o.x-s,e-o.x);
-            gl_FragColor = vec4(1, 1, 1, 1) - clamp(f*r.y,0.,2.1);
-        }
-        </script>
     </div>
 </template>
 <script>
-  import * as THREE from 'three';
-
   export default {
     name: 'Technologies',
     data () {
       return {
         // title: 'Home of Stanislaw Gutsch'
       }
-    },
-    mounted: function () {
-      let vertexShader = this.$el.querySelector('#vertex-shader-tech').textContent;
-      let fragmentShader = this.$el.querySelector('#fragment-shader-tech').textContent;
-      let scene = new THREE.Scene();
-      let camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-      let geometry = new THREE.PlaneBufferGeometry(2, 2);
-      let uniforms = {
-        time: {value: 1.0},
-        resolution: {type: 'v2', value: new THREE.Vector2()}
-      };
-
-      let renderer = new THREE.WebGLRenderer();
-      let techGl = this.$el.querySelector('#tech-gl');
-
-      uniforms.resolution.value.x = techGl.clientWidth;
-      uniforms.resolution.value.y = techGl.clientHeight;
-
-      renderer.setSize(techGl.clientWidth, techGl.clientHeight);
-      techGl.appendChild(renderer.domElement);
-
-      renderer.domElement.style.position = 'absolute';
-      renderer.domElement.style.left = '0';
-      renderer.domElement.style.top = '0';
-      renderer.domElement.style.zIndex = '1';
-
-      let material = new THREE.ShaderMaterial({
-        uniforms: uniforms,
-        vertexShader: vertexShader,
-        fragmentShader: fragmentShader
-      })
-      let mesh = new THREE.Mesh(geometry, material);
-
-      scene.add(mesh);
-
-      let animate = function (timestamp) {
-        requestAnimationFrame(animate);
-
-        uniforms.time.value = timestamp / 4000;
-
-        renderer.render(scene, camera);
-      };
-      this.$nextTick(function () {
-        animate();
-      });
     }
   }
 </script>
@@ -195,6 +150,21 @@
         z-index: 2;
         position: relative;
         padding-left: 0;
+    }
+
+    h2 {
+        display: none;
+    }
+
+    @media (max-width: 992px) {
+        .stack-list {
+            flex-flow: row;
+            margin-bottom: 5rem;
+            flex-wrap: wrap;
+        }
+        h2 {
+            display: block;
+        }
     }
 
     .stack-list .stack-item {
@@ -275,6 +245,7 @@
     }
 
     .tech-item h4 {
+        font-family: 'Pixelify Sans';
         margin-bottom: 0;
         padding: 0 1rem 1rem;
         font-weight: bold;

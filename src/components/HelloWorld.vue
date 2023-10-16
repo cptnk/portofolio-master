@@ -1,14 +1,7 @@
 <template>
     <div class="hello">
         <section id="headgl"></section>
-        <figure id="logo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <img src="../assets/static/logo.png" alt="cptnk-logo" height="110" width="160"/>
-                    </div>
-                </div>
-            </div>
+        <figure class="pixelart-to-css">
         </figure>
         <div class="container">
             <div class="row flex-row flex-row-justify">
@@ -17,8 +10,8 @@
                         <h1>{{ startHeadline }}</h1>
                         <p>
                             Hello my name is Stanislaw Gutsch and I write web-applications for a living.<br>
-                            My daily routine usually includes using JavaScript/PHP and the sophisticated deployment tool we use at the
-                            <a href="www.real.de">company</a> I work for.
+                            My daily routine usually includes using react/php and the sophisticated deployment tool we use at the
+                            <a href="https://tutool.io/">company</a> I work for.
                             <br>
                             <br>
                             I currently enjoy applying <a href="https://de.wikipedia.org/wiki/OpenGL_Shading_Language">GLSL</a> and <a href="https://threejs.org/">three.js</a> as a hobby
@@ -43,6 +36,7 @@
         </div>
         <technologies></technologies>
         <cv></cv>
+        <Footer></Footer>
         <script id="vertex-shader" type="x-shader/x-fragment">
        varying vec2 vUv;
 			void main()	{
@@ -53,196 +47,25 @@
 
         </script>
         <script id="fragment-shader" type="x-shader/x-fragment">
-// enjoy
-// you can have it as a windows Demo exe File with Music
-//
-// skype: alien 5ive
+            uniform float time;
+            uniform vec2 mouse;
+            uniform vec2 resolution;
 
-#ifdef GL_ES
-precision mediump float;
-#endif
-uniform float time;
-uniform vec2 resolution;
-#define iTime time
-#define iResolution resolution
-const vec4 iMouse = vec4(0.0);
+            void main() {
+              vec2 r = resolution;
+              vec2 o = gl_FragCoord.xy - r / 2.0;
+              o = vec2(length(o + 2.0) / r.y - 0.4, atan(o.y, o.x));
 
-#define POSTPROCESS
-#define RAYMARCHING_STEP 35
-#define RAYMARCHING_JUMP 1.
+              // Apply pixelation effect
+              float pixelationFactor = 0.001;
+              vec2 pixelSize = vec2(pixelationFactor);
+              vec2 texCoord = floor(o / pixelSize) * pixelSize;
 
-const float PI = 3.14159265359;
-float snoise(vec3 v);
-float vmax(vec3 v) {return max(max(v.x, v.y), v.z);}
-float fBox(vec3 p, vec3 b) {
-	vec3 d = abs(p) - b;
-	return length(max(d, vec3(0))) + vmax(min(d, vec3(0)));
-}
-float fOpUnionRound(float a, float b, float r) {
-	vec2 u = max(vec2(r - a,r - b), vec2(0));
-	return max(r, min (a, b)) - length(u);
-}
-
-float map( in vec3 pos ) {
-    float time = iTime;
-    pos -= snoise(pos*0.1+time);
-	float d = -10. + pos.y + snoise(pos/41.+time)*10. + snoise(pos/10.+time)*3.+ snoise(pos/80.+time)*15.+ snoise(pos);
-    pos += snoise(pos+time)+snoise(pos*2.+time);
-    d = fOpUnionRound( d, fBox(pos-vec3(4.,10.,0.),vec3(10.5,9.,15.)), 6.);
-	return d;
-}
-
-
-float castRay( in vec3 ro, in vec3 rd, inout float depth )
-{
-	float t = 0.0;
-	float res;
-	for( int i=0; i<RAYMARCHING_STEP; i++ )
-	{
-		vec3 pos = ro+rd*t;
-		res = map( pos );
-		if( res < 0.01 || t > 150. ) break;
-		t += res*RAYMARCHING_JUMP;
-		depth += 1./float(RAYMARCHING_STEP);
-	}
-	return t;
-}
-
-float hash( float n ){
-	return fract(sin(n)*3538.5453);
-}
-
-
-#ifdef POSTPROCESS
-vec3 postEffects( in vec3 col, in vec2 uv, in float time )
-{
-	// vigneting
-	col *= 0.7+0.3*pow( 16.0*uv.x*uv.y*(1.0-uv.x)*(1.0-uv.y), 0.1 );
-	return col;
-}
-#endif
-
-vec3 render( in vec3 ro, in vec3 rd, in vec2 uv )
-{
-	float depth = 0.;
-	float t = castRay(ro,rd,depth);
-    vec3 color = vec3(depth*uv.y,depth/5.,depth);
-    color += smoothstep(0.3,0.6,depth)*vec3(0.2,0.2,0.1);
-    color += smoothstep(0.6,1.,depth)*vec3(0.2,0.8,0.1);
-    return color;
-}
-
-
-mat3 setCamera( in vec3 ro, in vec3 ta, float cr )
-{
-	vec3 cw = normalize(ta-ro);
-	vec3 cp = vec3(sin(cr), cos(cr),0.0);
-	vec3 cu = normalize( cross(cw,cp) );
-	vec3 cv = normalize( cross(cu,cw) );
-	return mat3( cu, cv, cw );
-}
-
-vec3 orbit(float phi, float theta, float radius)
-{
-	return vec3(
-		radius * sin( phi ) * cos( theta ),
-		radius * cos( phi ) + cos( theta ),
-		radius * sin( phi ) * sin( theta )
-	);
-}
-
-
-
-float mandelBrot(vec2 p) {
-	p.x = p.x * 3.5 - 2.5;
-	p.y = p.y * 2.0 - 1.0;
-
-	vec2 xy = vec2(0.);
-	int itter = 0;
-	const int maxItter = 128;
-
-	for(int i = 0; i < maxItter; i++) {
-		if (dot(xy, xy) > 4.) {
-			break;
-		}
-
-		float xtemp = dot(vec2(xy.x, -xy.y), xy) + p.x;
-		xy.y = 2.0 * xy.x * xy.y + p.y;
-		xy.x = xtemp;
-		itter++;
-	}
-
-	return float(itter) / float(maxItter);
-}
-
-void mainImage( out vec4 fragColor, in vec2 coords )
-{
-	float time = iTime;
-	vec2 uv = coords.xy / iResolution.xy;
-	vec2 mouse = iMouse.xy / iResolution.xy;
-	vec2 q = coords.xy/iResolution.xy;
-	vec2 p = -1.0+2.0*q;
-	p.x *= iResolution.x/iResolution.y;
-
-	//Camera
-	float radius = 60.;
-	vec3 ro = orbit(PI/2.-.5,PI/2.+sin(time)*.35,radius);
-	vec3 ta  = vec3(0.0, 0., 0.0);
-	mat3 ca = setCamera( ro, ta, 0. );
-	vec3 rd = ca * normalize( vec3(p.xy,1.2) );
-
-	vec3 color = render( ro, rd, uv );
-	#ifdef POSTPROCESS
-	color = postEffects( color, uv, time );
-	#endif
-	fragColor = vec4(color,1.0);
-}
-
-
-lowp vec4 permute(in lowp vec4 x){return mod(x*x*34.+x,289.);}
-lowp float snoise(in mediump vec3 v){
-  const lowp vec2 C = vec2(0.16666666666,0.33333333333);
-  const lowp vec4 D = vec4(0,.5,1,2);
-  lowp vec3 i  = floor(C.y*(v.x+v.y+v.z) + v);
-  lowp vec3 x0 = C.x*(i.x+i.y+i.z) + (v - i);
-  lowp vec3 g = step(x0.yzx, x0);
-  lowp vec3 l = (1. - g).zxy;
-  lowp vec3 i1 = min( g, l );
-  lowp vec3 i2 = max( g, l );
-  lowp vec3 x1 = x0 - i1 + C.x;
-  lowp vec3 x2 = x0 - i2 + C.y;
-  lowp vec3 x3 = x0 - D.yyy;
-  i = mod(i,289.);
-  lowp vec4 p = permute( permute( permute(
-	  i.z + vec4(0., i1.z, i2.z, 1.))
-	+ i.y + vec4(0., i1.y, i2.y, 1.))
-	+ i.x + vec4(0., i1.x, i2.x, 1.));
-  lowp vec3 ns = .142857142857 * D.wyz - D.xzx;
-  lowp vec4 j = -49. * floor(p * ns.z * ns.z) + p;
-  lowp vec4 x_ = floor(j * ns.z);
-  lowp vec4 x = x_ * ns.x + ns.yyyy;
-  lowp vec4 y = floor(j - 7. * x_ ) * ns.x + ns.yyyy;
-  lowp vec4 h = 1. - abs(x) - abs(y);
-  lowp vec4 b0 = vec4( x.xy, y.xy );
-  lowp vec4 b1 = vec4( x.zw, y.zw );
-  lowp vec4 sh = -step(h, vec4(0));
-  lowp vec4 a0 = b0.xzyw + (floor(b0)*2.+ 1.).xzyw*sh.xxyy;
-  lowp vec4 a1 = b1.xzyw + (floor(b1)*2.+ 1.).xzyw*sh.zzww;
-  lowp vec3 p0 = vec3(a0.xy,h.x);
-  lowp vec3 p1 = vec3(a0.zw,h.y);
-  lowp vec3 p2 = vec3(a1.xy,h.z);
-  lowp vec3 p3 = vec3(a1.zw,h.w);
-  lowp vec4 norm = inversesqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
-  p0 *= norm.x;
-  p1 *= norm.y;
-  p2 *= norm.z;
-  p3 *= norm.w;
-  lowp vec4 m = max(.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.);
-  return .5 + 12. * dot( m * m * m, vec4( dot(p0,x0), dot(p1,x1),dot(p2,x2), dot(p3,x3) ) );
-}void main(void)
-{
-    mainImage(gl_FragColor, gl_FragCoord.xy);
-}
+              vec4 s = 0.1 * cos(1.618 * vec4(0.0, 0.1, 0.2, 0.3) + time + o.y + sin(o.y) * sin(time) * 2.0);
+              vec4 e = s.yzwx;
+              vec4 f = min(o.x - s, e - o.x);
+              gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0) - clamp(f * r.y, 0.0, 2.1);
+            }
         </script>
     </div>
 </template>
@@ -251,6 +74,7 @@ lowp float snoise(in mediump vec3 v){
   import * as THREE from 'three';
   import Technologies from './Technologies.vue';
   import Cv from './Cv.vue';
+  import Footer from './Footer.vue'
 
   export default {
     name: 'HelloWorld',
@@ -267,51 +91,57 @@ lowp float snoise(in mediump vec3 v){
         }
       }
     },
-    mounted: function () {
-      let vertexShader = this.$el.querySelector('#vertex-shader').textContent;
-      let fragmentShader = this.$el.querySelector('#fragment-shader').textContent;
-      let scene = new THREE.Scene();
-      let camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-      let geometry = new THREE.PlaneBufferGeometry(2, 2);
-      let uniforms = {
-        time: {value: 1.0},
-        resolution: {type: 'v2', value: new THREE.Vector2()}
-      };
+      mounted () {
+          let vertexShader = this.$el.querySelector('#vertex-shader').textContent;
+          let fragmentShader = this.$el.querySelector('#fragment-shader').textContent;
 
-      let renderer = new THREE.WebGLRenderer();
-      uniforms.resolution.value.x = window.innerWidth;
-      uniforms.resolution.value.y = (window.innerHeight / 2);
-      renderer.setSize(window.innerWidth, (window.innerHeight / 2));
-      this.$el.querySelector('#headgl').appendChild(renderer.domElement);
+          let scene = new THREE.Scene();
+          let camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+          let geometry = new THREE.PlaneBufferGeometry(2, 2);
+          let uniforms = {
+              time: { value: 1.0 },
+              resolution: { type: 'v2', value: new THREE.Vector2() }
+          };
 
-      let material = new THREE.ShaderMaterial({
-        uniforms: uniforms,
-        vertexShader: vertexShader,
-        fragmentShader: fragmentShader
-      })
-      let mesh = new THREE.Mesh(geometry, material);
+          let renderer = new THREE.WebGLRenderer({antialias: false});
+          uniforms.resolution.value.x = window.innerWidth;
+          uniforms.resolution.value.y = window.innerHeight / 2;
+          renderer.setSize(window.innerWidth, window.innerHeight / 2);
+          this.$el.querySelector('#headgl').appendChild(renderer.domElement);
 
-      scene.add(mesh);
+          let material = new THREE.ShaderMaterial({
+              uniforms: uniforms,
+              vertexShader: vertexShader,
+              fragmentShader: fragmentShader
+          });
 
-      let animate = function (timestamp) {
-        requestAnimationFrame(animate);
+          let mesh = new THREE.Mesh(geometry, material);
+          scene.add(mesh);
 
-        uniforms.time.value = timestamp / 1000;
+          let animate = function (timestamp) {
+              requestAnimationFrame(animate);
+              uniforms.time.value = timestamp * 0.0009;
+              renderer.render(scene, camera);
+          };
 
-        renderer.render(scene, camera);
-      };
-      this.$nextTick(function () {
-        animate();
-      });
-    },
+          animate();
+      },
       components: {
-          Technologies, Cv
+          Technologies, Cv, Footer
       }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .pixelart-to-css {
+        position: absolute;
+        left: calc(50% - 200px);
+        height: 10px;
+        width: 10px;
+        top: 3rem;
+        box-shadow: 210px 30px 0 0 rgba(255,39,255,1), 220px 30px 0 0 rgba(255,39,255,1), 230px 30px 0 0 rgba(255,39,255,1), 240px 30px 0 0 rgba(255,39,255,1), 280px 30px 0 0 rgba(1,255,247,1), 290px 30px 0 0 rgba(1,255,247,1), 300px 30px 0 0 rgba(1,255,247,1), 310px 30px 0 0 rgba(1,255,247,1), 360px 30px 0 0 rgba(255,255,4,1), 370px 30px 0 0 rgba(255,255,4,1), 380px 30px 0 0 rgba(255,255,4,1), 390px 30px 0 0 rgba(255,255,4,1), 200px 40px 0 0 rgba(255,39,255,1), 210px 40px 0 0 rgba(255,39,255,1), 220px 40px 0 0 rgba(255,39,255,1), 230px 40px 0 0 rgba(255,39,255,1), 270px 40px 0 0 rgba(1,255,247,1), 280px 40px 0 0 rgba(1,255,247,1), 290px 40px 0 0 rgba(1,255,247,1), 300px 40px 0 0 rgba(1,255,247,1), 350px 40px 0 0 rgba(255,255,4,1), 360px 40px 0 0 rgba(255,255,4,1), 370px 40px 0 0 rgba(255,255,4,1), 380px 40px 0 0 rgba(255,255,4,1), 190px 50px 0 0 rgba(255,39,255,1), 200px 50px 0 0 rgba(255,39,255,1), 210px 50px 0 0 rgba(255,39,255,1), 220px 50px 0 0 rgba(255,39,255,1), 260px 50px 0 0 rgba(1,255,247,1), 270px 50px 0 0 rgba(1,255,247,1), 280px 50px 0 0 rgba(1,255,247,1), 290px 50px 0 0 rgba(1,255,247,1), 340px 50px 0 0 rgba(255,255,4,1), 350px 50px 0 0 rgba(255,255,4,1), 360px 50px 0 0 rgba(255,255,4,1), 370px 50px 0 0 rgba(255,255,4,1), 180px 60px 0 0 rgba(255,39,255,1), 190px 60px 0 0 rgba(255,39,255,1), 200px 60px 0 0 rgba(255,39,255,1), 210px 60px 0 0 rgba(255,39,255,1), 250px 60px 0 0 rgba(1,255,247,1), 260px 60px 0 0 rgba(1,255,247,1), 270px 60px 0 0 rgba(1,255,247,1), 280px 60px 0 0 rgba(1,255,247,1), 330px 60px 0 0 rgba(255,255,4,1), 340px 60px 0 0 rgba(255,255,4,1), 350px 60px 0 0 rgba(255,255,4,1), 360px 60px 0 0 rgba(255,255,4,1), 170px 70px 0 0 rgba(255,39,255,1), 180px 70px 0 0 rgba(255,39,255,1), 190px 70px 0 0 rgba(255,39,255,1), 200px 70px 0 0 rgba(255,39,255,1), 240px 70px 0 0 rgba(1,255,247,1), 250px 70px 0 0 rgba(1,255,247,1), 260px 70px 0 0 rgba(1,255,247,1), 270px 70px 0 0 rgba(1,255,247,1), 320px 70px 0 0 rgba(255,255,4,1), 330px 70px 0 0 rgba(255,255,4,1), 340px 70px 0 0 rgba(255,255,4,1), 350px 70px 0 0 rgba(255,255,4,1), 80px 80px 0 0 rgba(44,62,80,1), 90px 80px 0 0 rgba(44,62,80,1), 100px 80px 0 0 rgba(44,62,80,1), 130px 80px 0 0 rgba(44,62,80,1), 140px 80px 0 0 rgba(44,62,80,1), 150px 80px 0 0 rgba(44,62,80,1), 160px 80px 0 0 rgba(255,39,255,1), 170px 80px 0 0 rgba(255,39,255,1), 180px 80px 0 0 rgba(44,62,80,1), 190px 80px 0 0 rgba(44,62,80,1), 200px 80px 0 0 rgba(44,62,80,1), 210px 80px 0 0 rgba(44,62,80,1), 220px 80px 0 0 rgba(44,62,80,1), 230px 80px 0 0 rgba(1,255,247,1), 240px 80px 0 0 rgba(44,62,80,1), 250px 80px 0 0 rgba(1,255,247,1), 260px 80px 0 0 rgba(1,255,247,1), 290px 80px 0 0 rgba(44,62,80,1), 310px 80px 0 0 rgba(44,62,80,1), 320px 80px 0 0 rgba(255,255,4,1), 330px 80px 0 0 rgba(255,255,4,1), 340px 80px 0 0 rgba(44,62,80,1), 70px 90px 0 0 rgba(44,62,80,1), 130px 90px 0 0 rgba(44,62,80,1), 150px 90px 0 0 rgba(255,39,255,1), 160px 90px 0 0 rgba(44,62,80,1), 170px 90px 0 0 rgba(255,39,255,1), 180px 90px 0 0 rgba(255,39,255,1), 200px 90px 0 0 rgba(44,62,80,1), 220px 90px 0 0 rgba(1,255,247,1), 230px 90px 0 0 rgba(1,255,247,1), 240px 90px 0 0 rgba(44,62,80,1), 250px 90px 0 0 rgba(44,62,80,1), 290px 90px 0 0 rgba(44,62,80,1), 300px 90px 0 0 rgba(255,255,4,1), 310px 90px 0 0 rgba(44,62,80,1), 320px 90px 0 0 rgba(255,255,4,1), 330px 90px 0 0 rgba(44,62,80,1), 70px 100px 0 0 rgba(44,62,80,1), 130px 100px 0 0 rgba(44,62,80,1), 140px 100px 0 0 rgba(255,39,255,1), 150px 100px 0 0 rgba(255,39,255,1), 160px 100px 0 0 rgba(44,62,80,1), 170px 100px 0 0 rgba(255,39,255,1), 200px 100px 0 0 rgba(44,62,80,1), 210px 100px 0 0 rgba(1,255,247,1), 220px 100px 0 0 rgba(1,255,247,1), 230px 100px 0 0 rgba(1,255,247,1), 240px 100px 0 0 rgba(44,62,80,1), 260px 100px 0 0 rgba(44,62,80,1), 290px 100px 0 0 rgba(44,62,80,1), 300px 100px 0 0 rgba(255,255,4,1), 310px 100px 0 0 rgba(44,62,80,1), 320px 100px 0 0 rgba(44,62,80,1), 70px 110px 0 0 rgba(44,62,80,1), 130px 110px 0 0 rgba(44,62,80,1), 140px 110px 0 0 rgba(44,62,80,1), 150px 110px 0 0 rgba(44,62,80,1), 160px 110px 0 0 rgba(255,39,255,1), 200px 110px 0 0 rgba(44,62,80,1), 210px 110px 0 0 rgba(1,255,247,1), 220px 110px 0 0 rgba(1,255,247,1), 230px 110px 0 0 rgba(1,255,247,1), 240px 110px 0 0 rgba(44,62,80,1), 270px 110px 0 0 rgba(44,62,80,1), 280px 110px 0 0 rgba(255,255,4,1), 290px 110px 0 0 rgba(44,62,80,1), 300px 110px 0 0 rgba(255,255,4,1), 310px 110px 0 0 rgba(44,62,80,1), 320px 110px 0 0 rgba(44,62,80,1), 70px 120px 0 0 rgba(44,62,80,1), 120px 120px 0 0 rgba(255,39,255,1), 130px 120px 0 0 rgba(44,62,80,1), 140px 120px 0 0 rgba(255,39,255,1), 150px 120px 0 0 rgba(255,39,255,1), 190px 120px 0 0 rgba(1,255,247,1), 200px 120px 0 0 rgba(44,62,80,1), 210px 120px 0 0 rgba(1,255,247,1), 220px 120px 0 0 rgba(1,255,247,1), 240px 120px 0 0 rgba(44,62,80,1), 270px 120px 0 0 rgba(255,255,4,1), 280px 120px 0 0 rgba(44,62,80,1), 290px 120px 0 0 rgba(44,62,80,1), 300px 120px 0 0 rgba(255,255,4,1), 310px 120px 0 0 rgba(44,62,80,1), 330px 120px 0 0 rgba(44,62,80,1), 80px 130px 0 0 rgba(44,62,80,1), 90px 130px 0 0 rgba(44,62,80,1), 100px 130px 0 0 rgba(44,62,80,1), 110px 130px 0 0 rgba(255,39,255,1), 120px 130px 0 0 rgba(255,39,255,1), 130px 130px 0 0 rgba(44,62,80,1), 140px 130px 0 0 rgba(255,39,255,1), 180px 130px 0 0 rgba(1,255,247,1), 190px 130px 0 0 rgba(1,255,247,1), 200px 130px 0 0 rgba(44,62,80,1), 210px 130px 0 0 rgba(1,255,247,1), 240px 130px 0 0 rgba(44,62,80,1), 260px 130px 0 0 rgba(255,255,4,1), 270px 130px 0 0 rgba(255,255,4,1), 280px 130px 0 0 rgba(255,255,4,1), 290px 130px 0 0 rgba(44,62,80,1), 310px 130px 0 0 rgba(44,62,80,1), 340px 130px 0 0 rgba(44,62,80,1), 90px 140px 0 0 rgba(255,39,255,1), 100px 140px 0 0 rgba(255,39,255,1), 110px 140px 0 0 rgba(255,39,255,1), 120px 140px 0 0 rgba(255,39,255,1), 170px 140px 0 0 rgba(1,255,247,1), 180px 140px 0 0 rgba(1,255,247,1), 190px 140px 0 0 rgba(1,255,247,1), 200px 140px 0 0 rgba(1,255,247,1), 250px 140px 0 0 rgba(255,255,4,1), 260px 140px 0 0 rgba(255,255,4,1), 270px 140px 0 0 rgba(255,255,4,1), 280px 140px 0 0 rgba(255,255,4,1), 80px 150px 0 0 rgba(255,39,255,1), 90px 150px 0 0 rgba(255,39,255,1), 100px 150px 0 0 rgba(255,39,255,1), 110px 150px 0 0 rgba(255,39,255,1), 160px 150px 0 0 rgba(1,255,247,1), 170px 150px 0 0 rgba(1,255,247,1), 180px 150px 0 0 rgba(1,255,247,1), 190px 150px 0 0 rgba(1,255,247,1), 240px 150px 0 0 rgba(255,255,4,1), 250px 150px 0 0 rgba(255,255,4,1), 260px 150px 0 0 rgba(255,255,4,1), 270px 150px 0 0 rgba(255,255,4,1), 70px 160px 0 0 rgba(255,39,255,1), 80px 160px 0 0 rgba(255,39,255,1), 90px 160px 0 0 rgba(255,39,255,1), 100px 160px 0 0 rgba(255,39,255,1), 150px 160px 0 0 rgba(1,255,247,1), 160px 160px 0 0 rgba(1,255,247,1), 170px 160px 0 0 rgba(1,255,247,1), 180px 160px 0 0 rgba(1,255,247,1), 230px 160px 0 0 rgba(255,255,4,1), 240px 160px 0 0 rgba(255,255,4,1), 250px 160px 0 0 rgba(255,255,4,1), 260px 160px 0 0 rgba(255,255,4,1), 60px 170px 0 0 rgba(255,39,255,1), 70px 170px 0 0 rgba(255,39,255,1), 80px 170px 0 0 rgba(255,39,255,1), 90px 170px 0 0 rgba(255,39,255,1), 140px 170px 0 0 rgba(1,255,247,1), 150px 170px 0 0 rgba(1,255,247,1), 160px 170px 0 0 rgba(1,255,247,1), 170px 170px 0 0 rgba(1,255,247,1), 220px 170px 0 0 rgba(255,255,4,1), 230px 170px 0 0 rgba(255,255,4,1), 240px 170px 0 0 rgba(255,255,4,1), 250px 170px 0 0 rgba(255,255,4,1), 50px 180px 0 0 rgba(255,39,255,1), 60px 180px 0 0 rgba(255,39,255,1), 70px 180px 0 0 rgba(255,39,255,1), 80px 180px 0 0 rgba(255,39,255,1), 130px 180px 0 0 rgba(1,255,247,1), 140px 180px 0 0 rgba(1,255,247,1), 150px 180px 0 0 rgba(1,255,247,1), 160px 180px 0 0 rgba(1,255,247,1), 210px 180px 0 0 rgba(255,255,4,1), 220px 180px 0 0 rgba(255,255,4,1), 230px 180px 0 0 rgba(255,255,4,1), 240px 180px 0 0 rgba(255,255,4,1);
+    }
     .social-box {
         border: 1px solid #2c3e50;
     }
@@ -340,6 +170,7 @@ lowp float snoise(in mediump vec3 v){
     }
 
     .social-links a {
+        filter: brightness(100%);
         padding: .5rem .5rem;
     }
 
@@ -349,12 +180,16 @@ lowp float snoise(in mediump vec3 v){
 
     #logo {
         position: absolute;
-        top: 0;
+        top: 1rem;
         left: 0;
-        width: 100%;
     }
+
+
 
     #logo img {
         padding-left: 1.5rem;
+    }
+    .container {
+        transform: translateY(-15vh);
     }
 </style>

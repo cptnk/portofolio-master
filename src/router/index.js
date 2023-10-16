@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Cv from '@/components/Cv'
-import Technologies from '@/components/Technologies'
+import Imprint from '@/components/Imprint'
+
 Vue.use(Router)
 
 export default new Router({
@@ -16,10 +17,11 @@ export default new Router({
         path: '/cv',
         name: 'Cv',
         component: Cv
-    }, {
-          path: '/technologies',
-          name: 'Technologies',
-          component: Technologies
+    },
+      {
+          path: '/imprint',
+          name: 'Imprint',
+          component: Imprint
       }
   ]
 })

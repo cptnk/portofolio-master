@@ -4,51 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1eeadb5-a30b-4241-bfcc-6f797f8c262e" name="Changes" comment="deploy">
-      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c1eeadb5-a30b-4241-bfcc-6f797f8c262e" name="Changes" comment="rebase">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/check-versions.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/check-versions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/dev-client.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/dev-client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/dev-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/dev-server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/vue-loader.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/vue-loader.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/webpack.base.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/webpack.base.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/webpack.test.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/webpack.test.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/prod.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/prod.env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/test.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/test.env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.85266944559ac160d72d.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/vendor.85266944559ac160d72d.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/fontello.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/fontello.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/static/jabascript.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/static/jabascript.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/static/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/static/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/static/php_logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/static/php_logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/static/typo3_logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/static/typo3_logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/static/vuejs_logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/static/vuejs_logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/static/zf_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/static/zf_logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styles/animation.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/animation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styles/fontello-codes.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/fontello-codes.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styles/fontello-embedded.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/fontello-embedded.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styles/fontello-ie7-codes.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/fontello-ie7-codes.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styles/fontello-ie7.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/fontello-ie7.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/styles/fontello.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/fontello.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Cv.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cv.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HelloWorld.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Technologies.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Technologies.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/e2e/custom-assertions/elementCount.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/e2e/custom-assertions/elementCount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/e2e/nightwatch.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/e2e/nightwatch.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/e2e/runner.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/e2e/runner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/unit/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/unit/specs/Hello.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit/specs/Hello.spec.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,29 +43,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/Users/stanislavgutsch/workspace/portofolio-master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Applications/PhpStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/stanislavgutsch/workspace/portofolio-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/PhpStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -209,6 +168,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="deploy" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy" />
+    <MESSAGE value="rebase" />
+    <option name="LAST_COMMIT_MESSAGE" value="rebase" />
   </component>
 </project>

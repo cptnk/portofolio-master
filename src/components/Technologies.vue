@@ -1,55 +1,37 @@
 <template>
     <div class="container" id="technologiesContainer">
-        <div class="col-12">
-            <h2>Technologies</h2>
-        </div>
         <div class="row flex-row flex-row-justify">
-            <div class="col-12 col-lg-5" id="tech-gl">
-                <ul class="stack-list">
-                    <li class="stack-item">
-                        <img src="../assets/static/python.png"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/php_logo.svg"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/jabascript.png"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/django.svg"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/vuejs_logo.svg"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/typo3_logo.svg"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/zf_logo.png"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/laravel.svg"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/symfony2.svg"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/react.svg"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/aws.svg"/>
-                    </li>
-                    <li class="stack-item">
-                        <img src="../assets/static/gitlab.svg"/>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-12 col-lg-7">
+            <div class="col-12">
                 <section class="technologies-section">
                     <h2>Knowledge and Interests;</h2>
                     <div class="tech-item backend-tech">
                         <h4>Backend</h4>
                         <div class="flex-container">
+                            <div class="two-x-tow-item">
+                                <ul class="stack-list">
+                                    <li class="stack-item">
+                                        <img src="../assets/static/python.png"/>
+                                    </li>
+                                    <li class="stack-item">
+                                        <img src="../assets/static/php_logo.svg"/>
+                                    </li>
+                                    <li class="stack-item">
+                                        <img src="../assets/static/django.svg"/>
+                                    </li>
+                                    <li class="stack-item">
+                                        <img src="../assets/static/typo3_logo.svg"/>
+                                    </li>
+                                    <li class="stack-item">
+                                        <img src="../assets/static/zf_logo.png"/>
+                                    </li>
+                                    <li class="stack-item">
+                                        <img src="../assets/static/laravel.svg"/>
+                                    </li>
+                                    <li class="stack-item">
+                                        <img src="../assets/static/symfony2.svg"/>
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="two-x-tow-item">
                                 <h5 class="odd">PHP</h5>
                                 <ul class="odd tech-stack-list">
@@ -72,6 +54,19 @@
                         <h4>Frontend</h4>
                         <div class="flex-container">
                             <div class="two-x-tow-item">
+                                <ul class="stack-list">
+                                    <li class="stack-item">
+                                        <img src="../assets/static/jabascript.png"/>
+                                    </li>
+                                    <li class="stack-item">
+                                        <img src="../assets/static/vuejs_logo.svg"/>
+                                    </li>
+                                    <li class="stack-item">
+                                        <img src="../assets/static/react.svg"/>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="two-x-tow-item">
                                 <h5 class="odd">JavaScript</h5>
                                 <ul class="odd tech-stack-list">
                                     <li>{{ (new Date()).getFullYear() - 2015 }} years of professional experience </li>
@@ -92,6 +87,16 @@
                     <div class="tech-item general-tech">
                         <h4>General</h4>
                         <div class="flex-container">
+                            <div class="two-x-tow-item">
+                                <ul class="stack-list">
+                                    <li class="stack-item">
+                                        <img src="../assets/static/aws.svg"/>
+                                    </li>
+                                    <li class="stack-item">
+                                        <img src="../assets/static/gitlab.svg"/>
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="two-x-tow-item">
                                 <h5 class="odd">Deployment and VCS</h5>
                                 <ul class="odd tech-stack-list">
@@ -136,11 +141,6 @@
         margin-top: 7rem;
     }
 
-    #tech-gl {
-        position: relative;
-        width: 100%;
-    }
-
     .stack-list {
         list-style-type: none;
         display: flex;
@@ -150,10 +150,7 @@
         z-index: 2;
         position: relative;
         padding-left: 0;
-    }
-
-    h2 {
-        display: none;
+        height: 100%;
     }
 
     @media (max-width: 992px) {
@@ -162,16 +159,10 @@
             margin-bottom: 5rem;
             flex-wrap: wrap;
         }
-        h2 {
-            display: block;
-        }
     }
 
     .stack-list .stack-item {
-        width: calc(100px - 2rem);
-        height: calc(75px - 2rem);
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding: 1rem 2rem;
     }
 
     .stack-list .stack-item img {
@@ -185,10 +176,6 @@
         background-color: #2c3e50;
     }
 
-    .general-tech .odd {
-        border-right: .5rem solid #2c3e50;
-    }
-
     .general-tech h4 {
         color: #ff00ff;
     }
@@ -200,10 +187,6 @@
 
     .Frontend-tech {
         background-color: #2c3e50;
-    }
-
-    .Frontend-tech .odd {
-        border-right: .5rem solid #2c3e50;
     }
 
     .Frontend-tech h4 {
@@ -221,10 +204,6 @@
 
     .backend-tech h4 {
         color: #ffff00;
-    }
-
-    .backend-tech .odd {
-        border-right: .5rem solid #2c3e50;
     }
 
     .backend-tech h5 {
@@ -306,18 +285,6 @@
 
         .tech-item .two-x-tow-item {
             width: 100%;
-        }
-
-        .general-tech .odd {
-            border-right: none;
-        }
-
-        .Frontend-tech .odd {
-            border-right: none;
-        }
-
-        .backend-tech .odd {
-            border-right: none;
         }
     }
 </style>
